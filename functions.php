@@ -125,7 +125,7 @@ function save_mothers_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
+		'name'          => esc_html__( 'Footer 2', 'save-mothers' ),
 		'id'            => 'footer-2',
 		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
@@ -134,7 +134,7 @@ function save_mothers_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
+		'name'          => esc_html__( 'Footer 3', 'save-mothers' ),
 		'id'            => 'footer-3',
 		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
