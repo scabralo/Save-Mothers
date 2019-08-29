@@ -14,19 +14,29 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'save-mothers' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'save-mothers' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'save-mothers' ), 'save-mothers', '<a href="http://www.sergiocabral.io">Sergio Cabral</a>' );
-				?>
-		</div><!-- .site-info -->
+		<div class="upper-footer">
+			<?php 
+				if ( is_active_sidebar( 'footer-1' ) ) dynamic_sidebar('footer-1');
+				if ( is_active_sidebar( 'footer-2' ) ) dynamic_sidebar('footer-2');
+				if ( is_active_sidebar( 'footer-3' ) ) dynamic_sidebar('footer-3');
+			?>
+		</div>
+		<div class="lower-footer">
+			<div class="site-info">
+				<div class="social-media-icons">
+				</div>
+				<div class="footer-nav-wrapper">
+					<nav id="site-navigation" class="main-navigation">
+						<?php
+						wp_nav_menu( array(
+							'theme_location' => 'menu-3',
+							'menu_id'        => 'footer-menu',
+						) );
+						?>
+					</nav><!-- #site-navigation -->
+				</div>
+			</div><!-- .site-info -->
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
