@@ -114,6 +114,33 @@ function save_mothers_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
+		'id'            => 'footer-1',
+		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
+		'id'            => 'footer-2',
+		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
+		'id'            => 'footer-3',
+		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'save_mothers_widgets_init' );
 
