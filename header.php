@@ -27,8 +27,8 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_header_image_tag(); ?></a>
 			<?php
-			the_header_image_tag();
 			if ( is_front_page() && is_home() ) :
 				?>
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
