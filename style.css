@@ -1002,6 +1002,7 @@ body.home .page {
 	position: absolute;
 	left: -999999px;
 }
+#masthead,
 .panel-grid.panel-no-style,
 .eco-wrapper {
     max-width: 1400px;
@@ -1013,4 +1014,49 @@ body.home .page {
 .main-navigation ul ul,
 .site-header {
 	background: #ffffff;
+}
+header#masthead {
+	display: flex;
+	height: 155px;
+	align-items: center;
+}
+.site-branding {
+	width: 100%;
+	max-width: 268px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.secondary-navigation ul {
+	list-style: none;
+}
+.site-navigation-wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	height: 100%;
+}
+.site-navigation-wrapper div > ul {
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+.site-navigation-wrapper > nav {
+	display: flex;
+	justify-content: flex-end;
+	height: 50%;
+	align-items: center;
+}
+.site-navigation-wrapper ul a {
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #4072b4;
+	font-size: 1.3em;
+}
+.site-navigation-wrapper li {
+	margin-left: 2.5em;
+}
+.secondary-navigation a {
+	font-weight: bold;
 }
