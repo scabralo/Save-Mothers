@@ -53,6 +53,14 @@
 			) );
 			?>
 		</nav><!-- #site-navigation -->
+		<nav class="secondary-navigation">
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'secondary-menu',
+				) );
+				?>
+		</nav>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
