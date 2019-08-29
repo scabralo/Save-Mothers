@@ -985,3 +985,32 @@ object {
 }
 
 /* CUSTOM SECTION */
+
+body.home .entry-header {
+	display: none;
+}
+body.page {
+	margin-bottom: 0;
+}
+body.home .page {
+	margin-bottom: 0;
+}
+.entry-content {
+	margin-top: 0;
+}
+.site-title, .site-description {
+	position: absolute;
+	left: -999999px;
+}
+.panel-grid.panel-no-style,
+.eco-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.entry-title {
+	display: none;
+}
+.main-navigation ul ul,
+.site-header {
+	background: #ffffff;
+}
