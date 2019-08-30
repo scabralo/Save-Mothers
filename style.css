@@ -1207,3 +1207,56 @@ footer nav li:not(:first-of-type) {
 .custom-link:hover::after {
 	border-color: black;
 }
+.bottom-section-container {
+	display: flex;
+	justify-content: center;
+}
+.bottom-section-content h2 {
+	margin: 0;
+	padding: 0 1.5em;
+	color: white;
+	text-transform: uppercase;
+	line-height: 1;
+}
+.bottom-section-content {
+	padding: 1.5em 1.5em;
+	border: 1px solid #40b1ae;
+	border-top: 0;
+	border-bottom: 0;
+}
+.bottom-section-content:first-of-type {
+	border-left: 0;
+}
+.bottom-section-content:last-of-type {
+	border-right: 0;
+}
+.bottom-section-header-wrapper {
+	background-color: #4072b4;
+	display: flex;
+	align-items: center;
+	height: 4.5em;
+}
+.bottom-section-content-wrapper {
+	border: 2px solid #4072b4;
+	padding: 1em 2em;
+}
+.bottom-section-content-wrapper p {
+	margin: 0;
+	color: #40b1ae;
+	font-size: 1.25em;
+	line-height: 1em;
+	max-width: 80%;
+	margin-bottom: 1.5em;
+}
+.bottom-section-container .button {
+	color: white;
+	background: #4072b4;
+	text-decoration: none;
+	padding: 0.75em 2em;
+	padding-bottom: .75em;
+	display: inline-block;
+	line-height: 1em;
+	border-radius: .25em;
+	text-transform: uppercase;
+	font-size: small;
+}

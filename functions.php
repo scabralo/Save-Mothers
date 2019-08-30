@@ -217,21 +217,22 @@ add_shortcode( 'main-hero', 'mainhero_func' );
 //[bottom-content-section]
 function bottomcontentsection_func( $atts ){
 	$html = "<div class='bottom-section-wrapper content-section'>";
+	$html .= 	"<div class='bottom-section-container'>";
 	foreach( get_cfc_meta( 'homepage-bottom-content-section' ) as $key => $value ){
 		$header = get_cfc_field( 'homepage-bottom-content-section','bottom-section-header', false, $key );
 		$content = get_cfc_field( 'homepage-bottom-content-section','bottom-section-content', false, $key );
 		$buttonText = get_cfc_field( 'homepage-bottom-content-section','bottom-section-button-text', false, $key );
 		$buttonLink = get_cfc_field( 'homepage-bottom-content-section','bottom-section-button-link', false, $key );
 		
-		$html .= 	"<div class='bottom-section-container custom-wrapper'>";
 		$html .=		"<div class='bottom-section-content'>";
-		$html .= 			"<h2>" . $header . "</h2>";
-		$html .= 			"<p>". $content ."</p>";
-		$html .= 			"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+		$html .= 			"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
+		$html .= 			"<div class='bottom-section-content-wrapper'>";
+		$html .=				"<p>". $content ."</p>";
+		$html .= 				"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+		$html .=			"</div>";
 		$html .=		"</div>";
-		$html .=	"</div>";
-		
 	}
+	$html .=	"</div>";
 	$html .= "</div>";
 	return $html;
 }
