@@ -191,17 +191,48 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 //[main-hero]
 function mainhero_func( $atts ){
 	$bgImage = get_cfc_field('homepage-main-hero', 'hero-background');
+	$heroHeader = get_cfc_field('homepage-main-hero', 'hero-header');
+	$heroContent = get_cfc_field('homepage-main-hero', 'hero-content');
+	$primaryLinkText = get_cfc_field('homepage-main-hero', 'hero-primary-link-text');
+	$primaryLinkURL = get_cfc_field('homepage-main-hero', 'hero-primary-link-url');
+	$secondaryLinkText = get_cfc_field('homepage-main-hero', 'hero-secondary-link-text');
+	$secondaryLinkURL = get_cfc_field('homepage-main-hero', 'hero-secondary-link-url');
 	$html = '';
-	if($bgImage) {
-		$html .= "<div class='main-hero-wrapper main-hero' style='background-image: url(". $bgImage['url'] .")'>";
-		$html .= 	"<div class='main-hero-container eco-wrapper'>";
-		$html .= 		"<div class='main-hero-content'>";
-		$html .= 			"<h2>" . get_cfc_field('homepage-main-hero', 'hero-header') . "</h2>";
-		$html .= 			"<p>" . get_cfc_field('homepage-main-hero', 'hero-content') . "</p>";
-		$html .= 		"</div>";
-		$html .= 	"</div>";
-		$html .= "</div>";
-	}
+	
+	$html .= "<div class='main-hero-wrapper main-hero' style='background-image: url(". ( $bgImage ? $bgImage['url'] : ' ' ) .")'>";
+	$html .= 	"<div class='main-hero-container'>";
+	$html .= 		"<div class='main-hero-content'>";
+	$html .= 			"<h2>" . ( $heroHeader ? $heroHeader : ' ' ) . "</h2>";
+	$html .= 			"<p>" . ( $heroContent ? $heroContent : ' ') . "</p>";
+	$html .= 			"<p><a class='custom-button' href='". ( $primaryLinkURL ? $primaryLinkURL : ' ' ) ."'>" . ( $primaryLinkText ? $primaryLinkText : ' ' ) . "</a></p>";
+	$html .= 		"</div>";
+	$html .= 		"<a class='custom-link' href='". ( $secondaryLinkURL ? $secondaryLinkURL : ' ' ) ."'>" . ( $secondaryLinkText ? $secondaryLinkText : ' ' ) . "</a>";
+	$html .= 	"</div>";
+	$html .= "</div>";
+	
 	return $html;
 }
 add_shortcode( 'main-hero', 'mainhero_func' );
+
+//[bottom-content-section]
+function bottomcontentsection_func( $atts ){
+	$html = "<div class='bottom-section-wrapper content-section'>";
+	foreach( get_cfc_meta( 'homepage-bottom-content-section' ) as $key => $value ){
+		$header = get_cfc_field( 'homepage-bottom-content-section','bottom-section-header', false, $key );
+		$content = get_cfc_field( 'homepage-bottom-content-section','bottom-section-content', false, $key );
+		$buttonText = get_cfc_field( 'homepage-bottom-content-section','bottom-section-button-text', false, $key );
+		$buttonLink = get_cfc_field( 'homepage-bottom-content-section','bottom-section-button-link', false, $key );
+		
+		$html .= 	"<div class='bottom-section-container custom-wrapper'>";
+		$html .=		"<div class='bottom-section-content'>";
+		$html .= 			"<h2>" . $header . "</h2>";
+		$html .= 			"<p>". $content ."</p>";
+		$html .= 			"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+		$html .=		"</div>";
+		$html .=	"</div>";
+		
+	}
+	$html .= "</div>";
+	return $html;
+}
+add_shortcode( 'bottom-content-section', 'bottomcontentsection_func' );

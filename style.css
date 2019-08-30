@@ -1002,6 +1002,8 @@ body.home .page {
 	position: absolute;
 	left: -999999px;
 }
+.custom-wrapper,
+.main-hero-container,
 .site-info,
 #masthead,
 .panel-grid.panel-no-style {
@@ -1094,6 +1096,7 @@ header#masthead {
 .upper-footer .widget p:last-of-type {
 	margin-bottom: 0;
 }
+.custom-button,
 .upper-footer .widget a {
 	text-decoration: none;
 	background-color: white;
@@ -1137,4 +1140,70 @@ footer nav a {
 }
 footer nav li:not(:first-of-type) {
 	margin-left: 3.5em;
+}
+.main-hero-container {
+	display: flex;
+	height: 100%;
+	position: relative;
+}
+.main-hero-wrapper.main-hero {
+	height: 500px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin-bottom: 2em;
+}
+.main-hero-content {
+	width: 50%;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1em;
+	min-width: 650px;
+}
+.main-hero-content h2 {
+	font-size: 3em;
+	text-transform: uppercase;
+	line-height: .9em;
+	margin: 0;
+	margin-bottom: .3em;
+	padding-bottom: .3em;
+}
+.main-hero-content p {
+	margin: 0;
+	font-size: 1.5em;
+	line-height: initial;
+	line-height: 1em;
+	width: 100%;
+	max-width: 400px;
+}
+.main-hero-container .custom-button {
+	color: black;
+	font-size: .6em;
+}
+.main-hero-content p:first-of-type {
+	margin-bottom: 3em;
+}
+.custom-link {
+	position: absolute;
+	right: 5%;
+	bottom: 25%;
+	text-decoration: none;
+	color: white;
+	font-weight: 600;
+}
+.custom-link::after {
+	content: ' ';
+	border-bottom: 1px solid white;
+	display: block;
+	width: 100%;
+	float: right;
+	max-width: 2em;
+}
+.custom-link:hover {
+	color: black;
+}
+.custom-link:hover::after {
+	border-color: black;
 }
