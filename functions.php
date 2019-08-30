@@ -119,7 +119,7 @@ function save_mothers_widgets_init() {
 		'name'          => esc_html__( 'Footer 1', 'save-mothers' ),
 		'id'            => 'footer-1',
 		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget widget-1 %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
@@ -128,7 +128,7 @@ function save_mothers_widgets_init() {
 		'name'          => esc_html__( 'Footer 2', 'save-mothers' ),
 		'id'            => 'footer-2',
 		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget widget-2 %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
@@ -137,7 +137,7 @@ function save_mothers_widgets_init() {
 		'name'          => esc_html__( 'Footer 3', 'save-mothers' ),
 		'id'            => 'footer-3',
 		'description'   => esc_html__( 'Add widgets here.', 'save-mothers' ),
-		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget widget-3 %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
@@ -188,3 +188,20 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+//[main-hero]
+function mainhero_func( $atts ){
+	$bgImage = get_cfc_field('homepage-main-hero', 'hero-background');
+	$html = '';
+	if($bgImage) {
+		$html .= "<div class='main-hero-wrapper main-hero' style='background-image: url(". $bgImage['url'] .")'>";
+		$html .= 	"<div class='main-hero-container eco-wrapper'>";
+		$html .= 		"<div class='main-hero-content'>";
+		$html .= 			"<h2>" . get_cfc_field('homepage-main-hero', 'hero-header') . "</h2>";
+		$html .= 			"<p>" . get_cfc_field('homepage-main-hero', 'hero-content') . "</p>";
+		$html .= 		"</div>";
+		$html .= 	"</div>";
+		$html .= "</div>";
+	}
+	return $html;
+}
+add_shortcode( 'main-hero', 'mainhero_func' );
