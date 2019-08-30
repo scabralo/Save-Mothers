@@ -237,3 +237,58 @@ function bottomcontentsection_func( $atts ){
 	return $html;
 }
 add_shortcode( 'bottom-content-section', 'bottomcontentsection_func' );
+
+//[content-sections]
+function contentsections_func( $atts ){
+	$html = '';
+
+	foreach( get_cfc_meta( 'homepage-content-sections' ) as $key => $value ){
+		$sectionHeader = get_cfc_field( 'homepage-content-sections','content-section-header', false, $key );
+
+		$leftBgImageId = get_cfc_field( 'homepage-content-sections','content-section-left-image', false, $key );
+		$leftBgImage = wp_get_attachment_image_src( $leftBgImageId, $size = 'full' );
+		$leftHeader = get_cfc_field( 'homepage-content-sections','content-section-left-header', false, $key );
+		$leftContent = get_cfc_field( 'homepage-content-sections','content-section-left-content', false, $key );
+		$leftButtonText = get_cfc_field( 'homepage-content-sections','content-section-left-button-text', false, $key );
+		$leftButtonLink = get_cfc_field( 'homepage-content-sections','content-section-left-button-link', false, $key );
+
+		$rightBgImageId = get_cfc_field( 'homepage-content-sections','content-section-right-image', false, $key );
+		$rightBgImage = wp_get_attachment_image_src( $rightBgImageId, $size = 'full' );
+		$rightHeader = get_cfc_field( 'homepage-content-sections','content-section-right-header', false, $key );
+		$rightContent = get_cfc_field( 'homepage-content-sections','content-section-right-content', false, $key );
+		$rightButtonText = get_cfc_field( 'homepage-content-sections','content-section-right-button-text', false, $key );
+		$rightButtonLink = get_cfc_field( 'homepage-content-sections','content-section-right-button-link', false, $key );
+
+		$html .= "<div class='content-section-wrapper content-section'>";
+
+		$html .= 	"<div class='content-section-header-container'>";
+		$html .= 		"<h2>". $sectionHeader ."</h2>";
+		$html .=	"</div>";
+
+		$html .= 	"<div class='content-section-columns-container custom-wrapper'>";
+
+		$html .=		"<div class='content-section-column'>";
+		$html .=			"<div class='content-section-image' style='background-image: url(". $leftBgImage[0] .")'></div>";
+		$html .=			"<div class='content-section-content'>";
+		$html .= 				"<h3>". $leftHeader ."</h3>";
+		$html .= 				"<p>". $leftContent ."</p>";
+		$html .= 				"<a class='eco-button' href='". $leftButtonLink ."'>" . $leftButtonText . "</a>";
+		$html .=			"</div>";
+		$html .=		"</div>";
+
+		$html .=		"<div class='content-section-column'>";
+		$html .=			"<div class='content-section-image' style='background-image: url(". $rightBgImage[0] .")'></div>";
+		$html .=			"<div class='content-section-content'>";
+		$html .= 				"<h3>". $rightHeader ."</h3>";
+		$html .= 				"<p>". $rightContent ."</p>";
+		$html .= 				"<a class='eco-button' href='". $rightButtonLink ."'>" . $rightButtonText . "</a>";
+		$html .=			"</div>";
+		$html .=		"</div>";
+
+		$html .=	"</div>";
+
+		$html .= "</div>";
+	}
+	return $html;
+}
+add_shortcode( 'content-sections', 'contentsections_func' );
