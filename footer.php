@@ -24,6 +24,11 @@
 		<div class="lower-footer">
 			<div class="site-info">
 				<div class="social-media-icons">
+					<ul>
+						<li><a href="#"><img src="https://orpical.com/test/savemothers/wp-content/uploads/2019/08/facebook-icon.png" alt="Facebook" srcset=""></a></li>
+						<li><a href="#"><img src="https://orpical.com/test/savemothers/wp-content/uploads/2019/08/twitter-icon.png" alt="Twitter" srcset=""></a></li>
+						<li><a href="#"><img src="https://orpical.com/test/savemothers/wp-content/uploads/2019/08/instagram-icon.png" alt="Instagram" srcset=""></a></li>
+					</ul>
 				</div>
 				<div class="footer-nav-wrapper">
 					<nav id="site-navigation" class="main-navigation">
