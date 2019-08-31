@@ -292,3 +292,28 @@ function contentsections_func( $atts ){
 	return $html;
 }
 add_shortcode( 'content-sections', 'contentsections_func' );
+
+//[after-hero]
+function afterhero_func( $atts ){
+
+	$header = get_cfc_field('after-hero-section', 'after-hero-heading');
+	$content = get_cfc_field('after-hero-section', 'after-hero-content');
+	$linkText = get_cfc_field('after-hero-section', 'after-hero-link-text');
+	$linkURL = get_cfc_field('after-hero-section', 'after-hero-link-url');
+	
+	$html = "<div class='after-hero-wrapper after-main-hero'>";
+	$html .= 	"<div class='after-hero-container custom-wrapper'>";
+	$html .= 		"<div class='after-hero-content'>";
+	$html .= 			"<h2>". $header ."</h2>";
+	$html .= 			"<p>". $content ."</p>";
+	$html .= 		"</div>";
+	$html .= 		"<div class='after-hero-slideshow'>";
+	$html .= 			"<h2>Personal Experience</h2>";
+	$html .= 			do_shortcode('[metaslider id="75"]');
+	$html .= 			"<a class='custom-link' href='". $linkURL ."'>" . $linkText . "</a>";
+	$html .= 		"</div>";
+	$html .= 	"</div>";
+	$html .= "</div>";
+	return $html;
+}
+add_shortcode( 'after-hero', 'afterhero_func' );

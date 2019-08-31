@@ -1056,6 +1056,7 @@ header#masthead {
 	text-transform: uppercase;
 	color: #4072b4;
 	font-size: 1.3em;
+	line-height: 1;
 }
 .site-navigation-wrapper li {
 	margin-left: 2.5em;
@@ -1267,7 +1268,7 @@ footer nav li:not(:first-of-type) {
 }
 .content-section-header-container h2 {
 	text-transform: uppercase;
-	font-size: 3em;
+	font-size: 2em;
 	font-weight: 700;
 	padding: 0 1em;
 	line-height: 1;
@@ -1299,6 +1300,7 @@ footer nav li:not(:first-of-type) {
 	width: 100%;
 	max-width: 47%;
 }
+.after-hero-content p,
 .content-section-content p {
 	font-size: 1.5em;
 	line-height: 1;
@@ -1329,4 +1331,34 @@ footer nav li:not(:first-of-type) {
 .content-section-wrapper {
 	background: #40b1ae;
 	color: #40b1ae;
+}
+.after-hero-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.after-hero-container > div {
+	width: 50%;
+	padding: 2em 3em;
+	color: #4072b4;
+	position: relative;
+}
+.after-hero-content h2 {
+	font-size: 2em;
+	text-transform: uppercase;
+	line-height: 1;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: .5em;
+}
+.after-hero-slideshow h2 {
+	margin-top: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.after-hero-content {
+	max-width: 500px;
+}
+.after-hero-slideshow .custom-link {
+	right: 15%;
 }

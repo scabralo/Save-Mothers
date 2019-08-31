@@ -14,7 +14,8 @@ get_header();
 			<article class="page type-page status-publish hentry">
 				<div class="entry-content">
 					<?php
-						echo do_shortcode( '[main-hero]' );
+            echo do_shortcode( '[main-hero]' );
+            echo do_shortcode( '[after-hero]' );
 						echo do_shortcode( '[content-sections]' );
 						echo do_shortcode( '[bottom-content-section]' );
 					?>
