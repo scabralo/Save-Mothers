@@ -16,13 +16,21 @@ get_header();
 					<?php
             echo do_shortcode( '[main-hero]' );
             echo do_shortcode( '[after-hero]' );
-						echo do_shortcode( '[content-sections]' );
-						echo do_shortcode( '[bottom-content-section]' );
+            echo do_shortcode( '[content-sections]' );
+            echo do_shortcode( '[after-content-section]' );
+            echo do_shortcode( '[field-content-section]' );
+            echo do_shortcode( '[news-events]' );            
 					?>
 				</div>
 			</article>
 		</main><!-- #main -->
-	</div><!-- #primary -->
-
+  </div><!-- #primary -->
+  <script>
+    (($) => {
+      const customLink = $('.after-hero-slideshow .custom-link')
+      const slider = $('.after-hero-slideshow .metaslider')
+      slider.prepend(customLink)
+    })(jQuery)
+  </script>
 <?php
 get_footer();

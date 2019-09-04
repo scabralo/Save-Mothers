@@ -26,42 +26,44 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'save-mothers' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_header_image_tag(); ?></a>
-			<?php
-			if ( is_front_page() && is_home() ) :
-				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+		<div class="custom-wrapper">
+			<div class="site-branding">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_header_image_tag(); ?></a>
 				<?php
-			else :
-				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-				<?php
-			endif;
-			$save_mothers_description = get_bloginfo( 'description', 'display' );
-			if ( $save_mothers_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $save_mothers_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
-		</div><!-- .site-branding -->
+				if ( is_front_page() && is_home() ) :
+					?>
+					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php
+				else :
+					?>
+					<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php
+				endif;
+				$save_mothers_description = get_bloginfo( 'description', 'display' );
+				if ( $save_mothers_description || is_customize_preview() ) :
+					?>
+					<p class="site-description"><?php echo $save_mothers_description; /* WPCS: xss ok. */ ?></p>
+				<?php endif; ?>
+			</div><!-- .site-branding -->
 
-		<div class="site-navigation-wrapper">
-			<nav id="site-navigation" class="main-navigation">
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
-			</nav><!-- #site-navigation -->
-			<nav class="secondary-navigation">
+			<div class="site-navigation-wrapper">
+				<nav id="site-navigation" class="main-navigation">
 					<?php
 					wp_nav_menu( array(
-						'theme_location' => 'menu-2',
-						'menu_id'        => 'secondary-menu',
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
 					) );
 					?>
-			</nav>
+				</nav><!-- #site-navigation -->
+				<nav class="secondary-navigation main-navigation">
+						<?php
+						wp_nav_menu( array(
+							'theme_location' => 'menu-2',
+							'menu_id'        => 'secondary-menu',
+						) );
+						?>
+				</nav>
+			</div>
 		</div>
 	</header><!-- #masthead -->
 
