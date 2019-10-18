@@ -26,7 +26,19 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'save-mothers' ); ?></a>
 
 	<header id="masthead" class="site-header">
-		<div class="custom-wrapper">
+		<div class="main-nav_wrapper">
+			<div class="custom-wrapper">
+				<nav id="site-navigation" class="main-navigation">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+					) );
+					?>
+				</nav><!-- #site-navigation -->
+			</div>
+		</div>
+		<div class="custom-wrapper secondary-nav_wrapper">
 			<div class="site-branding">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php the_header_image_tag(); ?></a>
 				<?php
@@ -47,14 +59,6 @@
 			</div><!-- .site-branding -->
 
 			<div class="site-navigation-wrapper">
-				<nav id="site-navigation" class="main-navigation">
-					<?php
-					wp_nav_menu( array(
-						'theme_location' => 'menu-1',
-						'menu_id'        => 'primary-menu',
-					) );
-					?>
-				</nav><!-- #site-navigation -->
 				<nav class="secondary-navigation main-navigation">
 						<?php
 						wp_nav_menu( array(
