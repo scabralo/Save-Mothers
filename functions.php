@@ -338,9 +338,7 @@ function afterhero_func( $atts ){
 	$html .= 			"<p>". $content ."</p>";
 	$html .= 		"</div>";
 	$html .= 		"<div class='after-hero-slideshow'>";
-	$html .= 			"<h2>Personal Experience</h2>";
 	$html .= 			do_shortcode('[metaslider id="75"]');
-	$html .= 			"<a class='custom-link' href='". $linkURL ."'>" . $linkText . "</a>";
 	$html .= 		"</div>";
 	$html .= 	"</div>";
 	$html .= "</div>";

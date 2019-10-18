@@ -1417,19 +1417,8 @@ footer nav a:hover,
 	margin-top: 0;
 	margin-bottom: .5em;
 }
-.after-hero-slideshow h2 {
-	margin-top: 0;
-	text-transform: uppercase;
-	font-weight: bold;
-	line-height: 1;
-}
 .after-hero-container div.after-hero-content {
 	max-width: 500px;
-}
-.after-hero-slideshow .custom-link {
-	right: 5%;
-	z-index: 99;
-	bottom: 10%;
 }
 .sub-menu li {
 	font-size: .8em;
@@ -1597,10 +1586,6 @@ article.type-post a {
 	.content-section-wrapper:not(:last-of-type),
 	.content-section-column:not(:last-of-type) {
 		margin-bottom: 3em;
-	}
-	.after-hero-slideshow .custom-link {
-    right: 5%;
-    bottom: 10%;
 	}
 }
 @media screen and (max-width: 600px) {
