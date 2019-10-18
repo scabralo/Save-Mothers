@@ -1124,6 +1124,7 @@ div#content {
 .upper-footer .widget-title {
 	margin: 0;
 	text-transform: uppercase;
+	margin-bottom: .6em;
 }
 .upper-footer .widget {
 	color: white;
@@ -1131,13 +1132,13 @@ div#content {
 	padding: 2em 4em;
 }
 .upper-footer .widget-1 {
-	background-color: #b19a40;
+	background-color: #880051;
 }
 .upper-footer .widget-2 {
-	background-color: #40b1ae;
+	background-color: #402039;
 }
 .upper-footer .widget-3 {
-	background-color: #b24095;
+	background-color: #c35b89;
 }
 .upper-footer .widget p {
 	margin-top: 0;
@@ -1151,22 +1152,14 @@ div#content {
 .custom-button,
 .upper-footer .widget a {
 	text-decoration: none;
-	background-color: white;
-	border-radius: .5em;
-	padding: 0em 1.5em;
+	background-color: #e8d7f1;
+	border-radius: 1.5em;
+	padding: 0.2em 1.5em;
 	text-transform: uppercase;
-	font-size: .8em;
+	font-size: .9em;
 	line-height: 1em;
 	font-weight: 600;
-}
-.upper-footer .widget-1 a {
-	color: #b19a40;
-}
-.upper-footer .widget-2 a {
-	color: #40b1ae;
-}
-.upper-footer .widget-3 a {
-	color: #b24095;
+	color: #402039;
 }
 .site-info {
 	display: flex;
