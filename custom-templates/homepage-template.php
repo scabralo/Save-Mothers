@@ -17,8 +17,8 @@ get_header();
             echo do_shortcode( '[main-hero]' );
             echo do_shortcode( '[after-hero]' );
             echo do_shortcode( '[content-sections]' );
-            echo do_shortcode( '[after-content-section]' );
-            echo do_shortcode( '[field-content-section]' );
+            // echo do_shortcode( '[after-content-section]' );
+            // echo do_shortcode( '[field-content-section]' );
             echo do_shortcode( '[news-events]' );            
 					?>
 				</div>

@@ -215,58 +215,58 @@ function mainhero_func( $atts ){
 add_shortcode( 'main-hero', 'mainhero_func' );
 
 //[after-content-section]
-function aftercontentsection_func( $atts ){
-	$html = "<div class='after-content-section bottom-section-wrapper content-section'>";
-	$html .= 	"<div class='bottom-section-container'>";
-	foreach( get_cfc_meta( 'homepage-after-content-section' ) as $key => $value ){
-		$imageId = get_cfc_field( 'homepage-after-content-section','after-content-image', false, $key );
-		$image = wp_get_attachment_image_src( $imageId, $size = 'full' );
-		$header = get_cfc_field( 'homepage-after-content-section','after-content-header', false, $key );
-		$content = get_cfc_field( 'homepage-after-content-section','after-content-text', false, $key );
-		$buttonText = get_cfc_field( 'homepage-after-content-section','after-content-button-text', false, $key );
-		$buttonLink = get_cfc_field( 'homepage-after-content-section','after-content-button-link', false, $key );
+// function aftercontentsection_func( $atts ){
+// 	$html = "<div class='after-content-section bottom-section-wrapper content-section'>";
+// 	$html .= 	"<div class='bottom-section-container'>";
+// 	foreach( get_cfc_meta( 'homepage-after-content-section' ) as $key => $value ){
+// 		$imageId = get_cfc_field( 'homepage-after-content-section','after-content-image', false, $key );
+// 		$image = wp_get_attachment_image_src( $imageId, $size = 'full' );
+// 		$header = get_cfc_field( 'homepage-after-content-section','after-content-header', false, $key );
+// 		$content = get_cfc_field( 'homepage-after-content-section','after-content-text', false, $key );
+// 		$buttonText = get_cfc_field( 'homepage-after-content-section','after-content-button-text', false, $key );
+// 		$buttonLink = get_cfc_field( 'homepage-after-content-section','after-content-button-link', false, $key );
 		
-		$html .=		"<div class='bottom-section-content'>";
-		$html .= 			"<div class='bottom-section-content-wrapper'>";
-		$html .=				"<img src='". $imageId['url'] ."'/>";
-		$html .=				"<div>";
-		$html .=	 				"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
-		$html .=					"<p>". $content ."</p>";
-		$html .= 					"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
-		$html .=				"</div>";
-		$html .=			"</div>";
-		$html .=		"</div>";
-	}
-	$html .=	"</div>";
-	$html .= "</div>";
-	return $html;
-}
-add_shortcode( 'after-content-section', 'aftercontentsection_func' );
+// 		$html .=		"<div class='bottom-section-content'>";
+// 		$html .= 			"<div class='bottom-section-content-wrapper'>";
+// 		$html .=				"<img src='". $imageId['url'] ."'/>";
+// 		$html .=				"<div>";
+// 		$html .=	 				"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
+// 		$html .=					"<p>". $content ."</p>";
+// 		$html .= 					"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+// 		$html .=				"</div>";
+// 		$html .=			"</div>";
+// 		$html .=		"</div>";
+// 	}
+// 	$html .=	"</div>";
+// 	$html .= "</div>";
+// 	return $html;
+// }
+// add_shortcode( 'after-content-section', 'aftercontentsection_func' );
 
 //[field-content-section]
-function fieldcontentsection_func( $atts ){
-	$html = "<div class='bottom-section-wrapper content-section'>";
-	$html .= "<div class='content-section-header-container'><h2>Field Experiences</h2></div>";
-	$html .= 	"<div class='bottom-section-container'>";
-	foreach( get_cfc_meta( 'homepage-field-content-section' ) as $key => $value ){
-		$header = get_cfc_field( 'homepage-field-content-section','field-section-header', false, $key );
-		$content = get_cfc_field( 'homepage-field-content-section','field-section-content', false, $key );
-		$buttonText = get_cfc_field( 'homepage-field-content-section','field-section-button-text', false, $key );
-		$buttonLink = get_cfc_field( 'homepage-field-content-section','field-section-button-link', false, $key );
+// function fieldcontentsection_func( $atts ){
+// 	$html = "<div class='bottom-section-wrapper content-section'>";
+// 	$html .= "<div class='content-section-header-container'><h2>Field Experiences</h2></div>";
+// 	$html .= 	"<div class='bottom-section-container'>";
+// 	foreach( get_cfc_meta( 'homepage-field-content-section' ) as $key => $value ){
+// 		$header = get_cfc_field( 'homepage-field-content-section','field-section-header', false, $key );
+// 		$content = get_cfc_field( 'homepage-field-content-section','field-section-content', false, $key );
+// 		$buttonText = get_cfc_field( 'homepage-field-content-section','field-section-button-text', false, $key );
+// 		$buttonLink = get_cfc_field( 'homepage-field-content-section','field-section-button-link', false, $key );
 		
-		$html .=		"<div class='bottom-section-content'>";
-		$html .= 			"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
-		$html .= 			"<div class='bottom-section-content-wrapper'>";
-		$html .=				"<p>". $content ."</p>";
-		$html .= 				"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
-		$html .=			"</div>";
-		$html .=		"</div>";
-	}
-	$html .=	"</div>";
-	$html .= "</div>";
-	return $html;
-}
-add_shortcode( 'field-content-section', 'fieldcontentsection_func' );
+// 		$html .=		"<div class='bottom-section-content'>";
+// 		$html .= 			"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
+// 		$html .= 			"<div class='bottom-section-content-wrapper'>";
+// 		$html .=				"<p>". $content ."</p>";
+// 		$html .= 				"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+// 		$html .=			"</div>";
+// 		$html .=		"</div>";
+// 	}
+// 	$html .=	"</div>";
+// 	$html .= "</div>";
+// 	return $html;
+// }
+// add_shortcode( 'field-content-section', 'fieldcontentsection_func' );
 
 //[content-sections]
 function contentsections_func( $atts ){
