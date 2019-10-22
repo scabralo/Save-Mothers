@@ -270,56 +270,63 @@ add_shortcode( 'main-hero', 'mainhero_func' );
 
 //[content-sections]
 function contentsections_func( $atts ){
-	$html = '';
 
-	foreach( get_cfc_meta( 'homepage-content-sections' ) as $key => $value ){
-		$sectionHeader = get_cfc_field( 'homepage-content-sections','content-section-header', false, $key );
+	$lastposts = get_posts( array(
+		'numberposts' => 3,
+		'orderby'          => 'date',
+		'order'            => 'DESC',
+		'tax_query'      => array(
+			array(
+				'taxonomy'  => 'post_tag',
+				'field'     => 'slug',
+				'terms'     => array('resources')
+			)
+		)
+	) );
+ 
+	if ( $lastposts ) {
 
-		$leftBgImageId = get_cfc_field( 'homepage-content-sections','content-section-left-image', false, $key );
-		$leftBgImage = wp_get_attachment_image_src( $leftBgImageId, $size = 'full' );
-		$leftHeader = get_cfc_field( 'homepage-content-sections','content-section-left-header', false, $key );
-		$leftContent = get_cfc_field( 'homepage-content-sections','content-section-left-content', false, $key );
-		$leftButtonText = get_cfc_field( 'homepage-content-sections','content-section-left-button-text', false, $key );
-		$leftButtonLink = get_cfc_field( 'homepage-content-sections','content-section-left-button-link', false, $key );
+		$sectionHeader = get_cfc_field( 'homepage-content-sections','content-section-header');
+		?>
+		<div class='content-section-wrapper content-section'>
+			<div class='content-section-header-container'>
+				<h2><?= $sectionHeader; ?></h2>
+			</div>
+			<div class='content-section-columns-container custom-wrapper'>
+		<?php
 
-		$rightBgImageId = get_cfc_field( 'homepage-content-sections','content-section-right-image', false, $key );
-		$rightBgImage = wp_get_attachment_image_src( $rightBgImageId, $size = 'full' );
-		$rightHeader = get_cfc_field( 'homepage-content-sections','content-section-right-header', false, $key );
-		$rightContent = get_cfc_field( 'homepage-content-sections','content-section-right-content', false, $key );
-		$rightButtonText = get_cfc_field( 'homepage-content-sections','content-section-right-button-text', false, $key );
-		$rightButtonLink = get_cfc_field( 'homepage-content-sections','content-section-right-button-link', false, $key );
-
-		$html .= "<div class='content-section-wrapper content-section'>";
-
-		$html .= 	"<div class='content-section-header-container'>";
-		$html .= 		"<h2>". $sectionHeader ."</h2>";
-		$html .=	"</div>";
-
-		$html .= 	"<div class='content-section-columns-container custom-wrapper'>";
-
-		$html .=		"<div class='content-section-column'>";
-		$html .=			"<div class='content-section-image' style='background-image: url(". $leftBgImage[0] .")'></div>";
-		$html .=			"<div class='content-section-content'>";
-		$html .= 				"<h3>". $leftHeader ."</h3>";
-		$html .= 				"<p>". $leftContent ."</p>";
-		$html .= 				"<a class='eco-button' href='". $leftButtonLink ."'>" . $leftButtonText . "</a>";
-		$html .=			"</div>";
-		$html .=		"</div>";
-
-		$html .=		"<div class='content-section-column'>";
-		$html .=			"<div class='content-section-image' style='background-image: url(". $rightBgImage[0] .")'></div>";
-		$html .=			"<div class='content-section-content'>";
-		$html .= 				"<h3>". $rightHeader ."</h3>";
-		$html .= 				"<p>". $rightContent ."</p>";
-		$html .= 				"<a class='eco-button' href='". $rightButtonLink ."'>" . $rightButtonText . "</a>";
-		$html .=			"</div>";
-		$html .=		"</div>";
-
-		$html .=	"</div>";
-
-		$html .= "</div>";
+		foreach ( $lastposts as $post ) :
+			setup_postdata( $post ); ?>
+			<div class='content-section-column'>
+				<div class='content-section-image' style='background-image: url("<?= get_the_post_thumbnail_url($post); ?>")'></div>
+				<div class='content-section-content'>
+					<h3><?= $post->post_title; ?></h3>
+					<p><?= $post->post_excerpt; ?></p>
+					<a class='eco-button' href="<?= get_permalink($post); ?>">Read More</a>
+					<div class="categories-container">
+						<?php
+							$categories = get_the_category($post->ID);
+							$separator = ' ';
+							$output = '<span>&nbsp;';
+							if ( ! empty( $categories ) ) {
+									foreach( $categories as $category ) {
+											$output .=  esc_html( $category->name ) . $separator;
+									}
+									$output .= '</span>';
+									echo trim( $output, $separator );
+							}
+						?>
+					</div>
+				</div>
+			</div>
+		<?php
+		endforeach; 
+		wp_reset_postdata();
+		?>
+	</div>
+	</div>
+	<?php
 	}
-	return $html;
 }
 add_shortcode( 'content-sections', 'contentsections_func' );
 
@@ -372,3 +379,23 @@ function newsevents_func( $atts ){
 	return $html;
 }
 add_shortcode( 'news-events', 'newsevents_func' );
+
+function fullwidth_func( $atts ){
+	$bgImage = get_cfc_field('homepage-fullwidth-section', 'fullwidth-bg-image');
+	$header = get_cfc_field('homepage-fullwidth-section', 'fullwidth-header');
+	$content = get_cfc_field('homepage-fullwidth-section', 'fullwidth-content-text');
+	$buttonText = get_cfc_field('homepage-fullwidth-section', 'fullwidth-button-text');
+	$buttonURL = get_cfc_field('homepage-fullwidth-section', 'fullwidth-button-url');
+
+	$html  =	"<div class='fullwidth-section' style='background-image: url(". ( $bgImage ? $bgImage['url'] : ' ' ) .")'>";
+	$html .=	"<div class='overlay'>";
+	$html .=		"<div class='fullwidth-container custom-wrapper'>";
+	$html .=			"<h2><span>Every second</span> counts.</h2>";
+	$html .= 			"<p>". $content ."</p>";
+	$html .= 			"<a class='custom-button' href='". $buttonURL ."'>" . $buttonText . "</a>";
+	$html .=		"</div>";
+	$html .=	"</div>";
+	$html .=	"</div>";
+	return $html;
+}
+add_shortcode( 'fullwidth-section', 'fullwidth_func' );
