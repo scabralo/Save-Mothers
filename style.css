@@ -1379,7 +1379,7 @@ footer nav a:hover,
 .content-section-column {
 	width: 100%;
 	max-width: 31%;
-	border-radius: 10%;
+	border-radius: 3em;
 	overflow: hidden;
 	/* -webkit-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 6px 6px 4px 0px rgba(0,0,0,0.75);
