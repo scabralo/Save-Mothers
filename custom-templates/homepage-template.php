@@ -16,9 +16,14 @@ get_header();
 					<?php
             echo do_shortcode( '[main-hero]' );
             echo do_shortcode( '[after-hero]' );
-            echo do_shortcode( '[fullwidth-section]' );            
-            echo do_shortcode( '[content-sections]' );
-            echo do_shortcode( '[news-events]' );            
+            echo do_shortcode( '[fullwidth-section]' );
+            echo do_shortcode( '[secondary-content]' );
+
+            $resourcesHeader = get_cfc_field( 'homepage-content-sections','content-section-header');
+            echo do_shortcode( '[content-sections filter="resources" title="'. $resourcesHeader .'"]' );
+
+            $newsHeader = get_cfc_field('news-events', 'news-events-title');
+            echo do_shortcode( '[content-sections filter="news-events" title="'. $newsHeader .'"]' );
 					?>
 				</div>
 			</article>

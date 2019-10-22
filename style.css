@@ -1394,6 +1394,7 @@ footer nav a:hover,
 }
 .after-hero-content p {
 	color: #444545;
+	font-size: 1.4em;;
 }
 .content-section-content a {
 	color: #880051;
@@ -1429,9 +1430,9 @@ footer nav a:hover,
 	line-height: 1;
 	font-weight: bold;
 	margin-top: 0;
-	margin-bottom: .5em;
+	margin-bottom: .4em;
 	border-bottom: 6px solid #c35b89;
-	padding-bottom: .5em;
+	padding-bottom: .4em;
 }
 .after-hero-container div.after-hero-content {
 	max-width: 650px;
@@ -1576,6 +1577,36 @@ article.type-post a {
 	font-size: 1.3em;
 	line-height: inherit;
 	color: #402039;
+}
+.secondary-content-section {
+	padding: 5em 0;
+}
+.secondary-content-section a:not(.custom-button) {
+	color: black;
+	text-decoration: none;
+	font-weight: 600;
+	margin-bottom: .5em;
+	display: inline-block;
+	font-size: .95em;
+	color: #880051;
+}
+.secondary-content-section .custom-button {
+	background: #880051;
+	color: white;
+	font-size: 1.2em;
+	margin-top: 2em;
+	display: inline-block;
+	line-height: inherit;
+}
+.secondary-content-section .custom-wrapper {
+	flex-direction: row-reverse;
+	max-width: 1200px;
+}
+.secondary-content-section .slides {
+	border-radius: 4em;
+	display: block;
+	overflow: hidden;
+	box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (max-width: 1000px) {

@@ -214,60 +214,6 @@ function mainhero_func( $atts ){
 }
 add_shortcode( 'main-hero', 'mainhero_func' );
 
-//[after-content-section]
-// function aftercontentsection_func( $atts ){
-// 	$html = "<div class='after-content-section bottom-section-wrapper content-section'>";
-// 	$html .= 	"<div class='bottom-section-container'>";
-// 	foreach( get_cfc_meta( 'homepage-after-content-section' ) as $key => $value ){
-// 		$imageId = get_cfc_field( 'homepage-after-content-section','after-content-image', false, $key );
-// 		$image = wp_get_attachment_image_src( $imageId, $size = 'full' );
-// 		$header = get_cfc_field( 'homepage-after-content-section','after-content-header', false, $key );
-// 		$content = get_cfc_field( 'homepage-after-content-section','after-content-text', false, $key );
-// 		$buttonText = get_cfc_field( 'homepage-after-content-section','after-content-button-text', false, $key );
-// 		$buttonLink = get_cfc_field( 'homepage-after-content-section','after-content-button-link', false, $key );
-		
-// 		$html .=		"<div class='bottom-section-content'>";
-// 		$html .= 			"<div class='bottom-section-content-wrapper'>";
-// 		$html .=				"<img src='". $imageId['url'] ."'/>";
-// 		$html .=				"<div>";
-// 		$html .=	 				"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
-// 		$html .=					"<p>". $content ."</p>";
-// 		$html .= 					"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
-// 		$html .=				"</div>";
-// 		$html .=			"</div>";
-// 		$html .=		"</div>";
-// 	}
-// 	$html .=	"</div>";
-// 	$html .= "</div>";
-// 	return $html;
-// }
-// add_shortcode( 'after-content-section', 'aftercontentsection_func' );
-
-//[field-content-section]
-// function fieldcontentsection_func( $atts ){
-// 	$html = "<div class='bottom-section-wrapper content-section'>";
-// 	$html .= "<div class='content-section-header-container'><h2>Field Experiences</h2></div>";
-// 	$html .= 	"<div class='bottom-section-container'>";
-// 	foreach( get_cfc_meta( 'homepage-field-content-section' ) as $key => $value ){
-// 		$header = get_cfc_field( 'homepage-field-content-section','field-section-header', false, $key );
-// 		$content = get_cfc_field( 'homepage-field-content-section','field-section-content', false, $key );
-// 		$buttonText = get_cfc_field( 'homepage-field-content-section','field-section-button-text', false, $key );
-// 		$buttonLink = get_cfc_field( 'homepage-field-content-section','field-section-button-link', false, $key );
-		
-// 		$html .=		"<div class='bottom-section-content'>";
-// 		$html .= 			"<div class='bottom-section-header-wrapper'><h2>" . $header . "</h2></div>";
-// 		$html .= 			"<div class='bottom-section-content-wrapper'>";
-// 		$html .=				"<p>". $content ."</p>";
-// 		$html .= 				"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
-// 		$html .=			"</div>";
-// 		$html .=		"</div>";
-// 	}
-// 	$html .=	"</div>";
-// 	$html .= "</div>";
-// 	return $html;
-// }
-// add_shortcode( 'field-content-section', 'fieldcontentsection_func' );
-
 //[content-sections]
 function contentsections_func( $atts ){
 
@@ -279,18 +225,18 @@ function contentsections_func( $atts ){
 			array(
 				'taxonomy'  => 'post_tag',
 				'field'     => 'slug',
-				'terms'     => array('resources')
+				'terms'     => array($atts['filter'])
 			)
 		)
 	) );
  
 	if ( $lastposts ) {
 
-		$sectionHeader = get_cfc_field( 'homepage-content-sections','content-section-header');
+		// $sectionHeader = get_cfc_field( 'homepage-content-sections','content-section-header');
 		?>
 		<div class='content-section-wrapper content-section'>
 			<div class='content-section-header-container'>
-				<h2><?= $sectionHeader; ?></h2>
+				<h2><?= $atts['title'] ?></h2>
 			</div>
 			<div class='content-section-columns-container custom-wrapper'>
 		<?php
@@ -330,6 +276,8 @@ function contentsections_func( $atts ){
 }
 add_shortcode( 'content-sections', 'contentsections_func' );
 
+
+
 //[after-hero]
 function afterhero_func( $atts ){
 
@@ -345,7 +293,7 @@ function afterhero_func( $atts ){
 	$html .= 			"<p>". $content ."</p>";
 	$html .= 		"</div>";
 	$html .= 		"<div class='after-hero-slideshow'>";
-	$html .= 			do_shortcode('[metaslider id="75"]');
+	$html .= 			do_shortcode('[su_youtube_advanced url="https://www.youtube.com/watch?v=bgiPTUy2RqI" playlist="" width="600" height="400" responsive="yes" controls="yes" autohide="alt" autoplay="no" mute="no" loop="no" rel="yes" fs="yes" modestbranding="no" theme="dark" wmode="" playsinline="no" title="" class=""]');
 	$html .= 		"</div>";
 	$html .= 	"</div>";
 	$html .= "</div>";
@@ -353,33 +301,31 @@ function afterhero_func( $atts ){
 }
 add_shortcode( 'after-hero', 'afterhero_func' );
 
-//[news-events]
-function newsevents_func( $atts ){
+//[secondary-content]
+function secondarycontent_func( $atts ){
 
-	$imageId = get_cfc_field( 'news-events','news-events-image');
-	$header = get_cfc_field('news-events', 'news-events-title');
-	$subHeader = get_cfc_field('news-events', 'news-events-sub-title');
-	$content = get_cfc_field('news-events', 'news-events-content');
-	$buttonText = get_cfc_field('news-events', 'news-events-button-text');
-	$buttonLink = get_cfc_field('news-events', 'news-events-button-url');
+	$header = get_cfc_field('secondary-content-section', 'secondary-content-header');
+	$content = get_cfc_field('secondary-content-section', 'secondary-content-text');
+	$linkText = get_cfc_field('secondary-content-section', 'secondary-content-button-text');
+	$linkURL = get_cfc_field('secondary-content-section', 'secondary-content-button-url');
 	
-	$html = "<div class='news-events-section after-hero-wrapper after-main-hero'>";
+	$html = "<div class='secondary-content-section after-hero-wrapper after-main-hero'>";
 	$html .= 	"<div class='after-hero-container custom-wrapper'>";
 	$html .= 		"<div class='after-hero-content'>";
 	$html .= 			"<h2>". $header ."</h2>";
-	$html .= 			"<h3>". $subHeader ."</h3>";
 	$html .= 			"<p>". $content ."</p>";
-	$html .= 			"<a class='button' href='". $buttonLink ."'>" . $buttonText . "</a>";
+	$html .= 			"<a class='custom-button' href='". $linkURL ."'>". $linkText ."</a>";
 	$html .= 		"</div>";
 	$html .= 		"<div class='after-hero-slideshow'>";
-	$html .=			"<img src='". $imageId['url'] ."'/>";
+	$html .= 			do_shortcode('[metaslider id="75"]');
 	$html .= 		"</div>";
 	$html .= 	"</div>";
 	$html .= "</div>";
 	return $html;
 }
-add_shortcode( 'news-events', 'newsevents_func' );
+add_shortcode( 'secondary-content', 'secondarycontent_func' );
 
+//[fullwidth-section]
 function fullwidth_func( $atts ){
 	$bgImage = get_cfc_field('homepage-fullwidth-section', 'fullwidth-bg-image');
 	$header = get_cfc_field('homepage-fullwidth-section', 'fullwidth-header');
