@@ -14,7 +14,7 @@ get_header();
 			<article class="page type-page status-publish hentry">
 				<div class="entry-content">
 					<?php
-            echo do_shortcode( '[main-hero]' );
+            echo do_shortcode( '[soliloquy id="369"]' );
             echo do_shortcode( '[after-hero]' );
             echo do_shortcode( '[fullwidth-section]' );
             echo do_shortcode( '[secondary-content]' );
