@@ -257,7 +257,7 @@ function contentsections_func( $atts ){
 							if ( ! empty( $categories ) ) {
 									foreach( $categories as $category ) {
 										$output .= '<a href="'. esc_url( get_category_link( $category->term_id ) ) .'">';
-											$output .=  esc_html( $category->name ) . $separator;
+										$output .=  esc_html( $category->name ) . $separator;
 										$output .=  '</a>';
 									}
 									$output .= '</span>';
