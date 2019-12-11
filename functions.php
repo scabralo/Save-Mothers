@@ -293,7 +293,7 @@ function afterhero_func( $atts ){
 	$html .= 			"<p>". $content ."</p>";
 	$html .= 		"</div>";
 	$html .= 		"<div class='after-hero-slideshow'>";
-	$html .= 			do_shortcode('[su_youtube_advanced url="https://www.youtube.com/watch?v=bgiPTUy2RqI" playlist="" width="600" height="400" responsive="yes" controls="yes" autohide="alt" autoplay="no" mute="no" loop="no" rel="yes" fs="yes" modestbranding="no" theme="dark" wmode="" playsinline="no" title="" class=""]');
+	$html .= 			do_shortcode('[su_youtube_advanced url="https://youtu.be/br4-C4ptNt4" playlist="" width="600" height="400" responsive="yes" controls="yes" autohide="alt" autoplay="no" mute="no" loop="no" rel="yes" fs="yes" modestbranding="no" theme="dark" wmode="" playsinline="no" title="" class=""]');
 	$html .= 		"</div>";
 	$html .= 	"</div>";
 	$html .= "</div>";
