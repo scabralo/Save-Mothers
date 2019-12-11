@@ -22,6 +22,8 @@ get_header();
             $resourcesHeader = get_cfc_field( 'homepage-content-sections','content-section-header');
             echo do_shortcode( '[content-sections filter="resources" title="'. $resourcesHeader .'"]' );
 
+            echo do_shortcode( '[experiences-section]' );
+
             $newsHeader = get_cfc_field('news-events', 'news-events-title');
             echo do_shortcode( '[content-sections filter="news-events" title="'. $newsHeader .'"]' );
 					?>
