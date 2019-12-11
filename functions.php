@@ -345,3 +345,32 @@ function fullwidth_func( $atts ){
 	return $html;
 }
 add_shortcode( 'fullwidth-section', 'fullwidth_func' );
+
+//[experiences-section]
+function experiences_func( $atts ){
+	$header = get_cfc_field('experiences-section', 'experiences-header');
+	$content = get_cfc_field('experiences-section', 'experiences-content');
+	$linkURL = get_cfc_field('experiences-section', 'experiences-link-url');
+	
+	$html = "<div class='experiences-section secondary-content-section after-hero-wrapper after-main-hero'>";
+	$html .= 	"<div class='after-hero-container custom-wrapper'>";
+	$html .= 		"<div class='after-hero-content'>";
+	$html .= 			"<h2>". $header ."</h2>";
+	$html .= 			"<p>". $content ."</p>";
+	$html .= 		"</div>";
+	$html .= 		"<div class='after-hero-slideshow'>";
+	$html .= 			"<a href='". $linkURL ."'><img src='https://orpical.com/test/savemothers/wp-content/uploads/2019/10/LP_nnl_2_0_39.png' alt='Click here to learn more!' /></a>";
+	$html .= 		"</div>";
+	$html .= 	"</div>";
+	$html .= 		"<div class='experiences-map-container custom-wrapper'>";
+	$html .= 			"<img src='https://orpical.com/test/savemothers/wp-content/uploads/2019/10/experiences-map.png' alt='Experiences World Map' />";
+	$html .= 			'<div class="tooltip cambodia"><span class="tooltiptext">Cambodia</span></div>';
+	$html .= 			'<div class="tooltip colombia"><span class="tooltiptext">Colombia</span></div>';
+	$html .= 			'<div class="tooltip india"><span class="tooltiptext">India</span></div>';
+	$html .= 			'<div class="tooltip niger"><span class="tooltiptext">Niger</span></div>';
+	$html .= 			'<div class="tooltip nigeria"><span class="tooltiptext">Nigeria</span></div>';
+	$html .= 		"</div>";
+	$html .= "</div>";
+	return $html;
+}
+add_shortcode( 'experiences-section', 'experiences_func' );
